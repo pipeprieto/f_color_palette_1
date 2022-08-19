@@ -7,7 +7,7 @@ import '../widgets/color_palette.dart';
 
 class ColorSelectionPage extends StatelessWidget {
   const ColorSelectionPage({Key? key}) : super(key: key);
-
+  //List<String> baseColors;
   void showDialog() {
     Get.dialog(const AlertDialog(
       title: Text('Flutter'),
@@ -25,10 +25,19 @@ class ColorSelectionPage extends StatelessWidget {
           ],
         ),
         // https://colorhunt.co/
-        body: (const Center(
-          child: Text(
-              "SingleChildScrollView -> Column -> [ColorPalette, ColorPalette] "),
-        )));
+        body: (Center(
+            child: SingleChildScrollView(
+          child: Column(children: [
+            ColorPalette(
+                baseColor: ["#C0B236", "#D9CB50", "#F0E161", "#FFF38C"]),
+            ColorPalette(
+                baseColor: ["#8FE3CF", "#256D85", "#2B4865", "#002B5B"]),
+            ColorPalette(
+                baseColor: ["#000000", "#59CE8F", "#E8F9FD", "#FF1E00"])
+          ]),
+        )
+            //"SingleChildScrollView -> Column -> [ColorPalette, ColorPalette] ",
+            )));
   }
 
   // está es la función que será llamada con cada click a un ColorPalette
